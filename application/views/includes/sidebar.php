@@ -16,14 +16,14 @@
             <!-- Menu: main ul -->
             <ul class="menu-list flex-grow-1 mt-3">
                 <li><a class="m-link" href="<?=base_url('main');?>"><i class="icofont-home fs-5"></i> <span>Home</span></a></li>
-                <li><a class="m-link" href="<?=base_url('admission');?>"><i class="icofont-ambulance fs-5"></i> <span>Admission</span></a></li>
+                <li><a class="m-link" href="<?=base_url('admission');?>"><i class="icofont-wheelchair fs-5"></i> <span>Admission</span></a></li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#dashboard-Components" href="#">
                         <i class="icofont-settings fs-5"></i> <span>Management/Reports</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="dashboard-Components">
-                        <li><a class="ms-link" href="index.html"> <span>Hr Dashboard</span></a></li>
-                        <li><a class="ms-link" href="project-dashboard.html"> <span>Project Dashboard</span></a></li>
+                        <li><a class="ms-link" href=""> <span>Search Patient Records</span></a></li>
+                        <li><a class="ms-link" href=""> <span>Daily Admission</span></a></li>
                     </ul>
                 </li>                
             </ul>

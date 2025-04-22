@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="<?=base_url('design/assets/plugin/datatables/dataTables.bootstrap5.min.css');?>">
     <!-- project css file  -->
     <link rel="stylesheet" href="<?=base_url('design/assets/css/my-task.style.min.css');?>">
+    <link rel="stylesheet" href="<?=base_url();?>design/assets/css/searchbar.css">
+	<link rel="stylesheet" href="<?=base_url();?>design/assets/css/button.css">
+	<link href="<?=base_url();?>design/assets/css/select2.min.css" rel="stylesheet"/>	
     <style type="text/css">
         .sidebar {
             top: 0;
