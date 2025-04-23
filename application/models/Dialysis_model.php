@@ -19,4 +19,9 @@ class Dialysis_model extends CI_model
 		$result=$this->db->query("SELECT a.*,pp.lastname,pp.firstname,pp.middlename,d.name as docname FROM admission a INNER JOIN patientprofile pp ON pp.patientidno=a.patientidno INNER JOIN docfile d ON d.code=a.ap WHERE a.caseno LIKE '%R-%' AND a.`status`='Active' ORDER BY a.dateadmit DESC");
 		return $result->result_array();
 	}
+
+	public function getAllPatient(){
+		$result=$this->db->query("SELECT * FROM patientprofile ORDER BY lastname ASC");
+		return $result->result_array();
+	}
 }

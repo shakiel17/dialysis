@@ -57,5 +57,23 @@ class Pages extends CI_Controller{
 			$this->load->view('pages/'.$page,$data);
 			$this->load->view('includes/modal');
 			$this->load->view('includes/footer');
-	}
+		}
+		public function admission(){
+			$page="admission";
+			if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+				$page="error404";
+			}
+			if($this->session->user_login){				
+			}else{
+				redirect(base_url());
+			}
+			$data['title'] = "Patient List";
+			$data['items'] = $this->Dialysis_model->getAllPatient();
+			$this->load->view('includes/header');
+			$this->load->view('includes/sidebar');
+			$this->load->view('includes/navbar');
+			$this->load->view('pages/'.$page,$data);
+			$this->load->view('includes/modal');
+			$this->load->view('includes/footer');
+		}
     }

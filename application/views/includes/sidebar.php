@@ -22,8 +22,8 @@
                         <i class="icofont-settings fs-5"></i> <span>Management/Reports</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="dashboard-Components">
-                        <li><a class="ms-link" href=""> <span>Search Patient Records</span></a></li>
-                        <li><a class="ms-link" href=""> <span>Daily Admission</span></a></li>
+                        <li><a class="ms-link" href="<?=base_url('search_record');?>"> <span>Search Patient Records</span></a></li>
+                        <li><a class="ms-link" href="#" data-bs-toggle="modal" data-bs-target="#DailyAdmission"> <span>Daily Admission</span></a></li>
                     </ul>
                 </li>                
             </ul>
