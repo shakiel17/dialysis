@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?=base_url('design/assets/css/my-task.style.min.css');?>">
     <link rel="stylesheet" href="<?=base_url();?>design/assets/css/searchbar.css">
 	<link rel="stylesheet" href="<?=base_url();?>design/assets/css/button.css">
+    <link rel="stylesheet" href="<?=base_url();?>design/assets/css/multistep.css">
 	<link href="<?=base_url();?>design/assets/css/select2.min.css" rel="stylesheet"/>	
     <style type="text/css">
         .sidebar {
@@ -121,6 +122,13 @@
                 transform: scale(0.9);
                 box-shadow: 0px 0px 0 4px #fff, 0px 0px 0 6px #bc00d8 ; background:rgb(205, 1, 202);
             }
+
+        .hide{
+            display:none;
+        }
+        .show{
+            display:block;
+        }
     </style>
 </head>
 <body>

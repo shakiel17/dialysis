@@ -69,11 +69,75 @@ class Pages extends CI_Controller{
 			}
 			$data['title'] = "Patient List";
 			$data['items'] = $this->Dialysis_model->getAllPatient();
+			$data['nationality'] = $this->Dialysis_model->getNationality();
+			$data['religion'] = $this->Dialysis_model->getReligion();
+			$data['attending'] = $this->Dialysis_model->getDoctor();
+			$data['company'] = $this->Dialysis_model->getCompany();
+			$data['province'] = $this->Dialysis_model->getState();
 			$this->load->view('includes/header');
 			$this->load->view('includes/sidebar');
 			$this->load->view('includes/navbar');
 			$this->load->view('pages/'.$page,$data);
-			$this->load->view('includes/modal');
+			$this->load->view('includes/modal',$data);
 			$this->load->view('includes/footer');
+		}
+
+		public function checkPassword(){
+			$id=$this->input->post('id');
+			$dept=$this->session->dept;
+			$data=$this->Dialysis_model->checkPassword($id,$dept);
+			echo json_encode($data);
+		}
+		public function checkControlNo(){
+			$id=$this->input->post('id');
+			$dept=$this->session->dept;
+			$data=$this->Dialysis_model->checkControlNo($id);
+			echo json_encode($data);
+		}
+		public function checkHCNExist(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->checkHCN($id);
+			echo json_encode($data);
+		}
+		public function getCity(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getCity($id);
+			echo json_encode($data);
+		}
+		public function getBarangay(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getBarangay($id);
+			echo json_encode($data);
+		}
+		public function getZipCode(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getZipCode($id);
+			echo json_encode($data);
+		}
+		public function submitadmission(){
+			$dept="RDU";
+			$password=$this->input->post('password');			
+			$patientidno=$this->input->post('patientidno');
+			$check=$this->Dialysis_model->checkUser($password,$dept);
+			$username=$this->session->username;
+			$nursename=$this->session->fullname;
+			if($patientidno==""){
+				$pid=$this->Dialysis_model->generatePatientID("1",$check['name']);
+			}else{
+				$pid=$patientidno;
+			}
+			$caseno=$this->Dialysis_model->generateCaseNo("R",$check['name']);
+			$admit=$this->Dialysis_model->save_rdu_admission($patientidno,$pid,$caseno,$check['name'],$check['empid']);
+			if($admit){				
+					echo "<script>alert('Admission successfully saved!');window.location='".base_url()."main';</script>";				
+			}else{
+				echo "<script>alert('Unable to save details! Duplicate Entry');window.location='".base_url()."admission';</script>";
+			}
+		}
+		public function fetch_previous_admission(){
+			$id=$this->input->post('id');
+			$dept="RDU";
+			$data=$this->Dialysis_model->fetch_previous_admission($id,$dept);
+			echo json_encode($data);
 		}
     }
