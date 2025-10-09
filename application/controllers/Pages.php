@@ -61,5 +61,66 @@ class Pages extends CI_Controller{
 			$this->load->view('pages/'.$page,$data);
 			$this->load->view('includes/modal');
 			$this->load->view('includes/footer');
-		}		
+		}
+		public function patient_list(){
+			$page="patient_list";
+			if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+				$page="error404";
+			}
+			if($this->session->user_login || $this->session->admin_login){				
+			}else{
+				redirect(base_url());
+			}
+			$data['title'] = "Patient Masterfile";
+			$data['items'] = $this->Dialysis_model->getAllPatient();
+			$this->load->view('includes/header');
+			$this->load->view('includes/navbar');
+			$this->load->view('includes/topbar');			
+			$this->load->view('pages/'.$page,$data);
+			$this->load->view('includes/modal');
+			$this->load->view('includes/footer');
+		}
+		public function new_admission(){
+			$patientidno=$this->input->post('patientidno');
+			if($patientidno == ""){
+				$data['title'] = "New Admission";			
+				$page="newadmission";
+			}else{
+				$data['title'] = "Re-Admission";
+				$data['item'] = $this->Dialysis_model->getPatientAdmission($patientidno);
+				$page="readmission";
+			}
+			if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+				$page="error404";
+			}
+			if($this->session->user_login || $this->session->admin_login){				
+			}else{
+				redirect(base_url());
+			}			
+			$data['religion'] = $this->Dialysis_model->getAllReligion();
+			$data['nationality'] = $this->Dialysis_model->getAllNationality();
+			$data['province'] = $this->Dialysis_model->getAllProvince();
+			$data['doctors'] = $this->Dialysis_model->getAllDoctor();
+			$this->load->view('includes/header');
+			$this->load->view('includes/navbar');
+			$this->load->view('includes/topbar');			
+			$this->load->view('pages/'.$page,$data);
+			$this->load->view('includes/modal');
+			$this->load->view('includes/footer');
+		}	
+		public function getCity(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getCity($id);
+			echo json_encode($data);
+		}
+		public function getBarangay(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getBarangay($id);
+			echo json_encode($data);
+		}
+		public function getZipCode(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->getZipCode($id);
+			echo json_encode($data);
+		}	
 	}

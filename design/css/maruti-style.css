@@ -165,7 +165,7 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 	margin-top:80px;
     padding-bottom: 25px;
     position: relative;
-    min-height: 500px;
+    min-height: 765px;
     width: auto;
 }
 

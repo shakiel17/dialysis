@@ -1,24 +1,25 @@
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-th-list"></i> Menu</a><ul>
     <li class="active"><a href="<?=base_url('main');?>"><i class="icon icon-home"></i> <span>Home</span></a> </li>
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a> </li>
-    <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a> </li>
-    <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-    <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>Forms</span> <span class="label label-important">3</span></a>
+    <li> <a href="#searchpatient" data-toggle="modal"><i class="icon icon-search"></i> <span>Search Patient</span></a> </li>
+    <li> <a href="<?=base_url('patient_list');?>"><i class="icon icon-user"></i> <span>Patient List</span></a> </li>          
+    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Reports</span></a>
       <ul>
-        <li><a href="form-common.html">Basic Form</a></li>
-        <li><a href="form-validation.html">Form with Validation</a></li>
-        <li><a href="form-wizard.html">Form with Wizard</a></li>
+        <li><a href="index2.html">Daily Admission</a></li>
+        <li><a href="gallery.html">Inventory Report</a></li>
+        <li><a href="calendar.html">e-Stock Card</a></li>
+        <li><a href="chat.html">Discharged Report</a></li>
+        <li><a href="chat.html">Daily Collection</a></li>
       </ul>
     </li>
-    <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
-    <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">4</span></a>
+    <li class="submenu"> <a href="#"><i class="icon icon-cog"></i> <span>Masterfile</span></a>
       <ul>
-        <li><a href="index2.html">Dashboard2</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="chat.html">Chat option</a></li>
+        <li><a href="<?=base_url('manage_employees');?>">Employees</a></li>
+        <li><a href="<?=base_url('manage_doctors');?>">Doctors</a></li>
+        <li><a href="<?=base_url('manage_address_location');?>">Address Manager</a></li>
+        <li><a href="<?=base_url('manage_religion');?>">Religion</a></li>
+        <li><a href="<?=base_url('manage_nationality');?>">Nationality</a></li>
+        <li><a href="<?=base_url('manage_med_sup');?>">Meds & Supplies</a></li>
+        <li><a href="<?=base_url('manage_services');?>">Services</a></li>        
       </ul>
     </li>
   </ul>
