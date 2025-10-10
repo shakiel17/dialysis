@@ -12,7 +12,7 @@
                     <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
                         <h5>Personal-info</h5>
                     </div>
-                    <div class="widget-content nopadding">            
+                    <div class="widget-content">            
                         <div class="control-group">
                             <label class="control-label">Last Name :</label>
                             <div class="controls">

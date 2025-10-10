@@ -69,6 +69,33 @@
 			});
 		});
 	});
+	$('.newdoctor').click(function(){
+		document.getElementById('doc_id').value = '';
+		document.getElementById('doc_lastname').value = '';
+		document.getElementById('doc_firstname').value = '';
+		document.getElementById('doc_middlename').value = '';
+		document.getElementById('doc_sufix').value = '';
+		document.getElementById('doc_extname').value = '';
+		document.getElementById('doc_specialization').value = '';		
+	});
+	$('.editdoctor').click(function(){
+		var id=$(this).data('id');		
+		$.ajax({
+				url:'<?=base_url();?>index.php/pages/fetchDoctor',
+				type:'post',
+				data: {id: id},
+				dataType:'json',
+				success: function(response){
+					document.getElementById('doc_id').value = id;
+					document.getElementById('doc_lastname').value = response[0]['lastname'];
+					document.getElementById('doc_firstname').value = response[0]['firstname'];
+					document.getElementById('doc_middlename').value = response[0]['middlename'];
+					document.getElementById('doc_suffix').value = response[0]['suffix'];
+					document.getElementById('doc_extname').value = response[0]['extname'];
+					document.getElementById('doc_specialization').value = response[0]['specialization'];
+				}
+			});
+	});
 </script>
 </body>
 </html>

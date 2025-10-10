@@ -13,7 +13,7 @@
               List of Patient              
             </h5>
           </div>
-          <div class="widget-content nopadding">
+          <div class="widget-content">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>

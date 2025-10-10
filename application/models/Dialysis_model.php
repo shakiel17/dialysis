@@ -56,4 +56,38 @@ class Dialysis_model extends CI_model
 		$result=$this->db->query("SELECT * FROM docfile ORDER BY `lastname` ASC,`firstname` ASC");
 		return $result->result_array();
 	}
+	public function save_doctor(){
+		$id=$this->input->post('id');
+		$lastname=$this->input->post('lastname');
+		$firstname=$this->input->post('firstname');
+		$middlename=$this->input->post('middlename');
+		$suffix=$this->input->post('suffix');
+		$fullname=$lastname.", ".$firstname." ".$middlename." ".$suffix;
+		$specialization=$this->input->post('specialization');
+		$loginuser=$this->session->fullname;
+		$datearray=date('Y-m-d');
+		$timearray=date('H:i:s');
+		if($id==""){
+			$result=$this->db->query("INSERT INTO docfile(lastname,firstname,middlename,suffix,specialization,fullname,added_date,added_time,added_by) VALUES('$lastname','$firstname','$middlename','$suffix','$specialization','$fullname','$datearray','$timearray','$loginuser')");
+		}else{
+			$result=$this->db->query("UPDATE docfile SET lastname='$lastname',firstname='$firstname',middlename='$middlename',suffix='$suffix',specialization='$specialization',fullname='$fullname',updated_date='$datearray',updated_time='$timearray',updated_by='$loginuser' WHERE id='$id'");
+		}
+		if($result){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function fetchDoctor($id){
+		$result=$this->db->query("SELECT * FROM docfile WHERE id='$id'");
+		return $result->result_array();
+	}
+	public function delete_doctor($id){
+		$result=$this->db->query("DELETE FROM docfile WHERE id='$id'");
+		if($result){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

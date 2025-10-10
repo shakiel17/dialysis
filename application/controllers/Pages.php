@@ -122,5 +122,46 @@ class Pages extends CI_Controller{
 			$id=$this->input->post('id');
 			$data=$this->Dialysis_model->getZipCode($id);
 			echo json_encode($data);
+		}
+		public function manage_doctors(){
+			$page="manage_doctor";
+			if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+				$page="error404";
+			}
+			if($this->session->user_login || $this->session->admin_login){				
+			}else{
+				redirect(base_url());
+			}
+			$data['title'] = "Doctor Masterfile";
+			$data['items'] = $this->Dialysis_model->getAllDoctor();
+			$this->load->view('includes/header');
+			$this->load->view('includes/navbar');
+			$this->load->view('includes/topbar');			
+			$this->load->view('pages/'.$page,$data);
+			$this->load->view('includes/modal');
+			$this->load->view('includes/footer');
 		}	
+		public function save_doctor(){
+			$save=$this->Dialysis_model->save_doctor();
+			if($save){
+				$this->session->set_flashdata('success','Doctor details successfully saved!');
+			}else{
+				$this->session->set_flashdata('failed','Unable to save doctor details!');
+			}
+			redirect(base_url('manage_doctors'));
+		}
+		public function fetchDoctor(){
+			$id=$this->input->post('id');
+			$data=$this->Dialysis_model->fetchDoctor($id);
+			echo json_encode($data);
+		}
+		public function delete_doctor($id){
+			$save=$this->Dialysis_model->delete_doctor($id);
+			if($save){
+				$this->session->set_flashdata('success','Doctor details successfully deleted!');
+			}else{
+				$this->session->set_flashdata('failed','Unable to delete doctor details!');
+			}
+			redirect(base_url('manage_doctors'));
+		}
 	}
