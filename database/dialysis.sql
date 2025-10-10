@@ -70,6 +70,9 @@ CREATE TABLE `admission` (
   `occupation` varchar(100) DEFAULT NULL,
   `contactno` varchar(45) DEFAULT NULL,
   `loginuser` varchar(100) DEFAULT NULL,
+  `updated_date` date DEFAULT NULL,
+  `updated_time` time DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,13 +160,17 @@ CREATE TABLE `docfile` (
   `firstname` varchar(100) DEFAULT NULL,
   `middlename` varchar(100) DEFAULT NULL,
   `suffix` varchar(45) DEFAULT NULL,
+  `extname` varchar(45) DEFAULT NULL,
   `specialization` varchar(100) DEFAULT NULL,
   `fullname` varchar(100) DEFAULT NULL,
   `added_date` date DEFAULT NULL,
   `added_time` time DEFAULT NULL,
   `added_by` varchar(100) DEFAULT NULL,
+  `updated_date` date DEFAULT NULL,
+  `updated_time` time DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,6 +179,7 @@ CREATE TABLE `docfile` (
 
 LOCK TABLES `docfile` WRITE;
 /*!40000 ALTER TABLE `docfile` DISABLE KEYS */;
+INSERT INTO `docfile` VALUES (3,'ACQUIATAN','AREX','QUILATON','',NULL,'INTERNAL MEDICINE','ACQUIATAN, AREX QUILATON ','2025-10-10','09:32:52','Administrator','2025-10-10','09:35:26','Administrator');
 /*!40000 ALTER TABLE `docfile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -524,4 +532,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-09 14:51:08
+-- Dump completed on 2025-10-10  9:38:44
